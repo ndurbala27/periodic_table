@@ -25,8 +25,6 @@ if ! [[ -z $ELEM ]]
         ATOMNUM=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$ELEM';")
   else [[ ${NAMELIST[*]} =~ $ELEM ]]
         ATOMNUM=$($PSQL "SELECT atomic_number FROM elements WHERE name='$ELEM';")
-  else
-        BILLY=66 #echo "I could not find that element in the database."
   fi
 
   if ! [[ -z $ATOMNUM ]]
