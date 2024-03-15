@@ -30,7 +30,7 @@ if ! [[ -z $ELEM ]]
       then
         NAME=$($PSQL "SELECT name FROM elements WHERE atomic_number=$ATOMNUM;")
         SYM=$($PSQL "SELECT symbol FROM elements WHERE atomic_number=$ATOMNUM;")
-        TYPE=$($PSQL "SELECT types FROM types full join properties on types.type_id = properties.type_id WHERE atomic_number=$ATOMNUM;")
+        TYPE=$($PSQL "SELECT type FROM types full join properties on types.type_id = properties.type_id WHERE atomic_number=$ATOMNUM;")
         MASS=$($PSQL "SELECT atomic_mass FROM properties WHERE atomic_number=$ATOMNUM;")
         MP=$($PSQL "SELECT melting_point_celsius FROM properties WHERE atomic_number=$ATOMNUM;")
         BP=$($PSQL "SELECT boiling_point_celsius FROM properties WHERE atomic_number=$ATOMNUM;")
